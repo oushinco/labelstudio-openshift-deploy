@@ -1,0 +1,18 @@
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  name: opendatahub-minio
+#  namespace: opendatahub
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: ml-workshop-minio
+      name: minio  
+  repos:
+    - name: kf-manifests
+      uri: https://github.com/kubeflow/manifests/archive/v1.2-branch.tar.gz
+    - name: manifests
+      uri: https://github.com/atef23/odh-manifests/archive/refs/tags/v1.4.0.tar.gz
+  version: disconnected-install

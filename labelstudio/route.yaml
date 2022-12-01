@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: label-studio-route
+spec:
+  path: /
+  to:
+    kind: Service
+    name: labelstudio
+  port:
+    targetPort: 8080
